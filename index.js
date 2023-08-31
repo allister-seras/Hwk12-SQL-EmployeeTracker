@@ -255,17 +255,30 @@ async function updateEmployeeRole() {
         message: "What is their new role?",
         choices: roles.map((role) => ({ name: role.title, value: role.id })),
       },
+      {
+        name: "managerUpdate",
+        type: "list",
+        message: "Who, if anyone, is their new manager?",
+        choices: employees.map((employee) => ({
+            name: employee.first_name + " " + employee.last_name,
+            value: employee.id,
+          })),
+      }
+
     ])
     .then((answers) => {
       db.query(
         "UPDATE employee SET ? WHERE ?",
         [
           {
-            role_id: answers.roleID,
+            role_id: answers.roleUpdate,
           },
           {
             id: answers.employeeUpdate,
           },
+          {
+            manager_id: answers.managerUpdate
+          }
         ],
         function (err) {
           if (err) throw err;
