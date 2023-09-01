@@ -3,9 +3,9 @@
 
   ## Table of Contents
   * [Description](#description)
-  * [Installation](#installation)
   * [Useage](#useage)
   * [License](#license)
+  * [Demo](#demo)
   
   ## Description
   This employee tracker database is designed to allow employers keep track of their employees, company heirarchy, roles, and salaries. It is designed to be used with SQL and has console/terminal functionality.
